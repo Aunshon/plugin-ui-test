@@ -16,6 +16,7 @@ import {
 } from "@wedevs/plugin-ui";
 import React, { useState } from "react";
 import { wemailDarkTheme, wemailTheme } from "./themes/wemail";
+import { ButtonShowcase } from "./ButtonShowcase";
 
 /* ============================================
    Theme Definitions
@@ -241,6 +242,22 @@ export function WeMailPluginDemo() {
       darkTokens={wemailDarkTheme}
     >
       <PluginDemo title="🔵 WeMail Plugin" color="blue" />
+    </ThemeProvider>
+  );
+}
+
+/* ============================================
+   Button Showcase Demo (Full Width)
+   ============================================ */
+
+export function ButtonShowcaseDemo() {
+  return (
+    <ThemeProvider
+      pluginId="button-showcase"
+      tokens={dokanTheme}
+      darkTokens={dokanDarkTheme}
+    >
+      <ButtonShowcase />
     </ThemeProvider>
   );
 }

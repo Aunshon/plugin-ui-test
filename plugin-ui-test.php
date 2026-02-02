@@ -28,12 +28,27 @@ add_action( 'admin_menu', function() {
         'dashicons-layout',
         100
     );
+
+    // Add Buttons submenu page
+    add_submenu_page(
+        'plugin-ui-test',
+        'Buttons',
+        'Buttons',
+        'manage_options',
+        'plugin-ui-test-buttons',
+        function() {
+            ?>
+            <div id="plugin-buttons-showcase-app"></div>
+            <?php
+        }
+    );
 } );
 
 add_action( 'admin_enqueue_scripts', function( $hook ) {
     $labels = [
         'toplevel_page_plugin-ui-test',
         'toplevel_page_plugin-ui-demo',
+        'ui-test_page_plugin-ui-test-buttons',
     ];
 
     if ( ! in_array($hook,$labels ) ) {

@@ -13,6 +13,11 @@ import {
   ThemeProvider,
   useTheme,
   type ThemeTokens,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+  ToggleGroup,
+  ToggleGroupItem, MatricsCard
 } from "@wedevs/plugin-ui";
 import React, { useState } from "react";
 import { wemailDarkTheme, wemailTheme } from "./themes/wemail";
@@ -206,6 +211,129 @@ function PluginDemo({ title, color }: { title: string; color: string }) {
             <Badge variant="success">Success</Badge>
             <Badge variant="warning">Warning</Badge>
             <Badge variant="destructive">Error</Badge>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Badges Card */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Tooltip</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div>
+            <div>
+              <Tooltip>
+                <TooltipTrigger>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       className="lucide lucide-info-icon lucide-info">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4" />
+                    <path d="M12 8h.01" />
+                  </svg>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <div>
+                    Help Text
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+            <div>
+              <Tooltip>
+                <TooltipTrigger>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       className="lucide lucide-info-icon lucide-info">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4" />
+                    <path d="M12 8h.01" />
+                  </svg>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <div className="max-w-46 text-center">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+            <div>
+              <Tooltip>
+                <TooltipTrigger>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       className="lucide lucide-info-icon lucide-info">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4" />
+                    <path d="M12 8h.01" />
+                  </svg>
+                </TooltipTrigger>
+                <TooltipContent side="left">
+                  <div>
+                    Left Help Text
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+            <div>
+              <Tooltip>
+                <TooltipTrigger>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       className="lucide lucide-info-icon lucide-info">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4" />
+                    <path d="M12 8h.01" />
+                  </svg>
+                </TooltipTrigger>
+                <TooltipContent side="right">
+                  <div>
+                    Right Help Text
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Toggle group */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Toggle group</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div>
+            <div>
+              <ToggleGroup orientation="horizontal" variant="outline" Value={["all"]} >
+                <ToggleGroupItem value="all" aria-label="Toggle all">
+                  All
+                </ToggleGroupItem>
+                <ToggleGroupItem value="missed" aria-label="Toggle missed">
+                  Missed
+                </ToggleGroupItem>
+              </ToggleGroup>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Metrics and Trends */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Metrics and Trends</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div>
+            <div>
+              <MatricsCard
+                tooltip="Total sales in last 30 days"
+                title="Total Sales"
+                value="$12,345"
+                trendType="positive"
+              />
+            </div>
           </div>
         </CardContent>
       </Card>

@@ -26,19 +26,28 @@ import { ButtonShowcase } from "./ButtonShowcase";
 const dokanTheme: ThemeTokens = {
   primary: "oklch(0.5410 0.2120 265.7540)",
   primaryForeground: "oklch(1.0000 0 0)",
+  secondary: "oklch(0.9690 0.0030 264.5313)",
+  secondaryForeground: "oklch(0.1391 0.0090 285.8820)",
+  muted: "oklch(0.9690 0.0030 264.5313)",
+  mutedForeground: "oklch(0.5890 0.0110 258.3381)",
+  border: "oklch(0.9079 0.0079 264.3637)",
+  foreground: "oklch(0.1391 0.0090 285.8820)",
   ring: "oklch(0.5410 0.2120 265.7540)",
 };
 
 const dokanDarkTheme: ThemeTokens = {
-  primary: "#000",
-  primaryForeground: "#fff",
-  background: "#eee",
-  foreground: "#fff",
+  primary: "oklch(0.5410 0.2120 265.7540)",
+  primaryForeground: "oklch(1.0000 0 0)",
+  secondary: "oklch(0.2690 0.0150 264.5419)",
+  secondaryForeground: "oklch(0.9850 0.0030 264.5000)",
+  background: "oklch(0.1391 0.0090 285.8820)",
+  foreground: "oklch(0.9850 0.0030 264.5000)",
   card: "oklch(0.1800 0.0140 285.7500)",
   cardForeground: "oklch(0.9850 0.0030 264.5000)",
   border: "oklch(0.3690 0.0150 264.5313)",
   muted: "oklch(0.2690 0.0150 264.5419)",
   mutedForeground: "oklch(0.7110 0.0200 264.3637)",
+  ring: "oklch(0.5410 0.2120 265.7540)",
 };
 
 /* ============================================

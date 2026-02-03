@@ -1,4 +1,4 @@
-import { Button, Switch, useTheme } from "@wedevs/plugin-ui";
+import { Button, Spinner, Switch, useTheme } from "@wedevs/plugin-ui";
 import { Check, ChevronDown, Menu, Plus, Trash2 } from "lucide-react";
 import React from "react";
 
@@ -363,22 +363,149 @@ function ButtonGuidelineSection() {
    ============================================ */
 
 function ProgressiveSection() {
-  return (
-    <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-foreground">Progressive</h3>
+  const [uploading, setUploading] = React.useState(false);
+  const [progress, setProgress] = React.useState(0);
 
-      <div className="grid grid-cols-2 gap-6 max-w-md">
-        <div className="space-y-2">
-          <p className="text-xs text-muted-foreground">Progress Bar Button</p>
-          <Button variant="default" size="default" progress={45}>
-            Loading
+  React.useEffect(() => {
+    if (!uploading) return;
+
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setUploading(false);
+          return 0;
+        }
+        return prev + 5;
+      });
+    }, 150);
+
+    return () => clearInterval(interval);
+  }, [uploading]);
+
+  const handleUpload = () => {
+    setUploading(true);
+    setProgress(0);
+  };
+
+  return (
+    <div className="space-y-8">
+      <h3 className="text-lg font-semibold text-foreground">Progressive States</h3>
+
+      {/* Loading States */}
+      <div className="space-y-4">
+        <h4 className="text-sm font-medium text-muted-foreground">Loading State</h4>
+        <p className="text-xs text-muted-foreground">Shows spinner and auto-disables the button</p>
+        <div className="flex flex-wrap gap-3">
+          <Button variant="default" loading={true}>
+            Generating
+          </Button>
+          <Button variant="secondary" loading={true}>
+            Downloading
+          </Button>
+          <Button variant="outline" loading={true}>
+            Processing
+          </Button>
+          <Button variant="ghost" loading={true}>
+            Syncing
+          </Button>
+          <Button variant="destructive" loading={true}>
+            Deleting
           </Button>
         </div>
+      </div>
 
-        <div className="space-y-2">
-          <p className="text-xs text-muted-foreground">Loader Button</p>
-          <Button variant="default" size="default" loading>
-            Saving
+      {/* Progress Bar States */}
+      <div className="space-y-4">
+        <h4 className="text-sm font-medium text-muted-foreground">Progress Bar</h4>
+        <p className="text-xs text-muted-foreground">Visual indicator showing completion percentage (0-100)</p>
+        <div className="flex flex-wrap gap-3">
+          <Button variant="default" progress={25}>
+            25% Complete
+          </Button>
+          <Button variant="secondary" progress={50}>
+            50% Complete
+          </Button>
+          <Button variant="outline" progress={75}>
+            75% Complete
+          </Button>
+          <Button variant="success" progress={100}>
+            100% Complete
+          </Button>
+        </div>
+      </div>
+
+      {/* Combined Loading + Progress */}
+      <div className="space-y-4">
+        <h4 className="text-sm font-medium text-muted-foreground">Combined Loading + Progress</h4>
+        <p className="text-xs text-muted-foreground">Shows both spinner and progress bar together</p>
+        <div className="flex flex-wrap gap-3">
+          <Button variant="default" loading={true} progress={30}>
+            Downloading 30%
+          </Button>
+          <Button variant="secondary" loading={true} progress={60}>
+            Building 60%
+          </Button>
+          <Button variant="outline" loading={true} progress={90}>
+            Deploying 90%
+          </Button>
+        </div>
+      </div>
+
+      {/* Interactive Example */}
+      <div className="space-y-4">
+        <h4 className="text-sm font-medium text-muted-foreground">Interactive Example</h4>
+        <p className="text-xs text-muted-foreground">Click to simulate upload with progress</p>
+        <div className="flex flex-wrap gap-3">
+          <Button
+            variant="default"
+            loading={uploading}
+            progress={uploading ? progress : undefined}
+            onClick={handleUpload}
+          >
+            {uploading ? `Uploading ${progress}%` : "Upload File"}
+          </Button>
+          <Button
+            variant="secondary"
+            loading={uploading}
+            progress={uploading ? progress : undefined}
+            onClick={handleUpload}
+          >
+            {uploading ? `Processing ${progress}%` : "Process Data"}
+          </Button>
+          <Button
+            variant="outline"
+            loading={uploading}
+            progress={uploading ? progress : undefined}
+            onClick={handleUpload}
+          >
+            {uploading ? `Installing ${progress}%` : "Install Package"}
+          </Button>
+        </div>
+      </div>
+
+      {/* Manual Spinner Usage */}
+      <div className="space-y-4">
+        <h4 className="text-sm font-medium text-muted-foreground">Manual Spinner Component</h4>
+        <p className="text-xs text-muted-foreground">
+          Use Spinner component manually for custom loading implementations
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Button variant="outline" disabled>
+            <Spinner data-icon="inline-start" />
+            Generating
+          </Button>
+          <Button variant="secondary" disabled>
+            Downloading
+            <Spinner data-icon="inline-end" />
+          </Button>
+          <Button variant="default" disabled>
+            <Spinner data-icon="inline-start" />
+            Processing
+          </Button>
+          <Button variant="destructive" disabled>
+            <Spinner data-icon="inline-start" className="size-4" />
+            Deleting
           </Button>
         </div>
       </div>

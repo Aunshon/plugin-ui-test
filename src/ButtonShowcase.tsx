@@ -113,12 +113,14 @@ interface ButtonSizeSectionProps {
 }
 
 function ButtonSizeSection({ title, size }: ButtonSizeSectionProps) {
-  const iconSize = size === "l" ? "icon-lg" : size === "m" ? "icon-md" : "icon-sm";
+  const iconSize =
+    size === "l" ? "icon-lg" : size === "m" ? "icon-md" : "icon-sm";
 
   return (
     <div className="space-y-6">
       <h3 className="text-2xl font-semibold text-muted-foreground">
-        {title} /<span className="text-muted-foreground font-normal"> Square</span>
+        {title} /
+        <span className="text-muted-foreground font-normal"> Square</span>
       </h3>
 
       {/* Primary Variant */}
@@ -140,7 +142,11 @@ function ButtonSizeSection({ title, size }: ButtonSizeSectionProps) {
 
           <div className="space-y-2">
             <p className="text-xs text-muted-foreground">Icon Right</p>
-            <Button variant="primary" size={size} rightIcon={<ChevronDownIcon />}>
+            <Button
+              variant="primary"
+              size={size}
+              rightIcon={<ChevronDownIcon />}
+            >
               Create Store
             </Button>
           </div>
@@ -191,8 +197,14 @@ function ButtonSizeSection({ title, size }: ButtonSizeSectionProps) {
           </div>
 
           <div className="space-y-2">
-            <p className="text-xs text-muted-foreground invisible">Icon Right</p>
-            <Button variant="secondary" size={size} rightIcon={<ChevronDownIcon />}>
+            <p className="text-xs text-muted-foreground invisible">
+              Icon Right
+            </p>
+            <Button
+              variant="secondary"
+              size={size}
+              rightIcon={<ChevronDownIcon />}
+            >
               Create Store
             </Button>
           </div>
@@ -243,8 +255,14 @@ function ButtonSizeSection({ title, size }: ButtonSizeSectionProps) {
           </div>
 
           <div className="space-y-2">
-            <p className="text-xs text-muted-foreground invisible">Icon Right</p>
-            <Button variant="outlined" size={size} rightIcon={<ChevronDownIcon />}>
+            <p className="text-xs text-muted-foreground invisible">
+              Icon Right
+            </p>
+            <Button
+              variant="outlined"
+              size={size}
+              rightIcon={<ChevronDownIcon />}
+            >
               Create Store
             </Button>
           </div>
@@ -315,7 +333,9 @@ function ProgressiveButtonsSection() {
 function ButtonGuidelineSection() {
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-foreground">Button Guideline</h3>
+      <h3 className="text-lg font-semibold text-foreground">
+        Button Guideline
+      </h3>
 
       <div className="space-y-8">
         {/* States Header */}
@@ -339,7 +359,11 @@ function ButtonGuidelineSection() {
             <Button variant="primary" size="m" className="active:bg-primary/80">
               Button
             </Button>
-            <Button variant="primary" size="m" className="ring-2 ring-ring ring-offset-2">
+            <Button
+              variant="primary"
+              size="m"
+              className="ring-2 ring-ring ring-offset-2"
+            >
               Button
             </Button>
             <p className="text-sm text-foreground">Primary</p>
@@ -352,13 +376,25 @@ function ButtonGuidelineSection() {
             <Button variant="secondary" size="m">
               Button
             </Button>
-            <Button variant="secondary" size="m" className="hover:bg-secondary/80">
+            <Button
+              variant="secondary"
+              size="m"
+              className="hover:bg-secondary/80"
+            >
               Button
             </Button>
-            <Button variant="secondary" size="m" className="active:bg-secondary/70">
+            <Button
+              variant="secondary"
+              size="m"
+              className="active:bg-secondary/70"
+            >
               Button
             </Button>
-            <Button variant="secondary" size="m" className="ring-2 ring-ring ring-offset-2">
+            <Button
+              variant="secondary"
+              size="m"
+              className="ring-2 ring-ring ring-offset-2"
+            >
               Button
             </Button>
             <p className="text-sm text-foreground">Secondary</p>
@@ -374,10 +410,18 @@ function ButtonGuidelineSection() {
             <Button variant="outlined" size="m" className="hover:bg-primary/10">
               Button
             </Button>
-            <Button variant="outlined" size="m" className="active:bg-primary/20">
+            <Button
+              variant="outlined"
+              size="m"
+              className="active:bg-primary/20"
+            >
               Button
             </Button>
-            <Button variant="outlined" size="m" className="ring-2 ring-ring ring-offset-2">
+            <Button
+              variant="outlined"
+              size="m"
+              className="ring-2 ring-ring ring-offset-2"
+            >
               Button
             </Button>
             <p className="text-sm text-foreground">Outlined</p>
@@ -440,14 +484,17 @@ function MobileSizeSection() {
   return (
     <div className="space-y-6">
       <h3 className="text-lg font-semibold text-foreground">
-        Mobile Size Example <span className="text-muted-foreground font-normal">(Touch)</span>
+        Mobile Size Example{" "}
+        <span className="text-muted-foreground font-normal">(Touch)</span>
       </h3>
 
       <div className="max-w-xs space-y-3">
         <Button variant="primary" size="l" fullWidth>
           Mobile Button
         </Button>
-        <p className="text-xs text-muted-foreground">Buttons for screen width</p>
+        <p className="text-xs text-muted-foreground">
+          Buttons for screen width
+        </p>
       </div>
     </div>
   );
@@ -463,9 +510,10 @@ export function ButtonShowcase() {
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Header */}
         <div>
-          <h1 className="text-6xl font-bold text-foreground mb-2">Buttons</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Buttons</h1>
           <p className="text-muted-foreground">
-            Comprehensive button component showcase with all variants, sizes, and states.
+            Comprehensive button component showcase with all variants, sizes,
+            and states.
           </p>
         </div>
 
@@ -510,7 +558,6 @@ export function ButtonShowcase() {
 
         {/* Divider */}
         <div className="border-t border-border" />
-
       </div>
     </div>
   );

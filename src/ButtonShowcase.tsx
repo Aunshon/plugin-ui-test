@@ -359,6 +359,34 @@ function ButtonGuidelineSection() {
 }
 
 /* ============================================
+   Progressive Buttons Section
+   ============================================ */
+
+function ProgressiveSection() {
+  return (
+    <div className="space-y-6">
+      <h3 className="text-lg font-semibold text-foreground">Progressive</h3>
+
+      <div className="grid grid-cols-2 gap-6 max-w-md">
+        <div className="space-y-2">
+          <p className="text-xs text-muted-foreground">Progress Bar Button</p>
+          <Button variant="default" size="default" progress={45}>
+            Loading
+          </Button>
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-xs text-muted-foreground">Loader Button</p>
+          <Button variant="default" size="default" loading>
+            Saving
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================
    Affirmative/Negative Buttons Section
    ============================================ */
 
@@ -556,6 +584,10 @@ export function ButtonShowcase() {
 
         {/* Button States */}
         <ButtonGuidelineSection />
+        <div className="border-t border-border" />
+
+        {/* Progressive */}
+        <ProgressiveSection />
         <div className="border-t border-border" />
 
         {/* Affirmative & Negative */}

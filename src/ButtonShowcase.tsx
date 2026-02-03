@@ -33,9 +33,7 @@ interface ButtonSizeSectionProps {
 function ButtonSizeSection({ title, size, iconSize }: ButtonSizeSectionProps) {
   return (
     <div className="space-y-6">
-      <h3 className="text-2xl font-semibold text-foreground">
-        {title}
-      </h3>
+      <h3 className="text-2xl font-semibold text-foreground">{title}</h3>
 
       {/* Default Variant */}
       <div className="space-y-3">
@@ -257,9 +255,7 @@ function ButtonSizeSection({ title, size, iconSize }: ButtonSizeSectionProps) {
 function ButtonGuidelineSection() {
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-foreground">
-        Button States
-      </h3>
+      <h3 className="text-lg font-semibold text-foreground">Button States</h3>
 
       <div className="space-y-8">
         {/* States Header */}
@@ -277,11 +273,19 @@ function ButtonGuidelineSection() {
               Button
             </Button>
             <div className="group">
-              <Button variant="default" size="default" className="group-hover:bg-primary/80">
+              <Button
+                variant="default"
+                size="default"
+                className="group-hover:bg-primary/80"
+              >
                 Button
               </Button>
             </div>
-            <Button variant="default" size="default" className="ring-2 ring-ring ring-offset-2">
+            <Button
+              variant="default"
+              size="default"
+              className="ring-2 ring-ring ring-offset-2"
+            >
               Button
             </Button>
             <Button variant="default" size="default" disabled>
@@ -298,11 +302,19 @@ function ButtonGuidelineSection() {
               Button
             </Button>
             <div className="group">
-              <Button variant="secondary" size="default" className="group-hover:bg-secondary/80">
+              <Button
+                variant="secondary"
+                size="default"
+                className="group-hover:bg-secondary/80"
+              >
                 Button
               </Button>
             </div>
-            <Button variant="secondary" size="default" className="ring-2 ring-ring ring-offset-2">
+            <Button
+              variant="secondary"
+              size="default"
+              className="ring-2 ring-ring ring-offset-2"
+            >
               Button
             </Button>
             <Button variant="secondary" size="default" disabled>
@@ -319,11 +331,19 @@ function ButtonGuidelineSection() {
               Button
             </Button>
             <div className="group">
-              <Button variant="outline" size="default" className="group-hover:bg-muted">
+              <Button
+                variant="outline"
+                size="default"
+                className="group-hover:bg-muted"
+              >
                 Button
               </Button>
             </div>
-            <Button variant="outline" size="default" className="ring-2 ring-ring ring-offset-2">
+            <Button
+              variant="outline"
+              size="default"
+              className="ring-2 ring-ring ring-offset-2"
+            >
               Button
             </Button>
             <Button variant="outline" size="default" disabled>
@@ -340,11 +360,19 @@ function ButtonGuidelineSection() {
               Button
             </Button>
             <div className="group">
-              <Button variant="ghost" size="default" className="group-hover:bg-muted">
+              <Button
+                variant="ghost"
+                size="default"
+                className="group-hover:bg-muted"
+              >
                 Button
               </Button>
             </div>
-            <Button variant="ghost" size="default" className="ring-2 ring-ring ring-offset-2">
+            <Button
+              variant="ghost"
+              size="default"
+              className="ring-2 ring-ring ring-offset-2"
+            >
               Button
             </Button>
             <Button variant="ghost" size="default" disabled>
@@ -390,26 +418,37 @@ function ProgressiveSection() {
 
   return (
     <div className="space-y-8">
-      <h3 className="text-lg font-semibold text-foreground">Progressive States</h3>
+      <h3 className="text-lg font-semibold text-foreground">
+        Progressive States
+      </h3>
 
       {/* Loading States */}
       <div className="space-y-4">
-        <h4 className="text-sm font-medium text-muted-foreground">Loading State</h4>
-        <p className="text-xs text-muted-foreground">Shows spinner and auto-disables the button</p>
+        <h4 className="text-sm font-medium text-muted-foreground">
+          Loading State
+        </h4>
+        <p className="text-xs text-muted-foreground">
+          Add Spinner as a child to show loading state
+        </p>
         <div className="flex flex-wrap gap-3">
-          <Button variant="default" loading={true}>
+          <Button variant="default" disabled>
+            <Spinner />
             Generating
           </Button>
-          <Button variant="secondary" loading={true}>
+          <Button variant="secondary" disabled>
+            <Spinner />
             Downloading
           </Button>
-          <Button variant="outline" loading={true}>
+          <Button variant="outline" disabled>
+            <Spinner />
             Processing
           </Button>
-          <Button variant="ghost" loading={true}>
+          <Button variant="ghost" disabled>
+            <Spinner />
             Syncing
           </Button>
-          <Button variant="destructive" loading={true}>
+          <Button variant="destructive" disabled>
+            <Spinner />
             Deleting
           </Button>
         </div>
@@ -417,8 +456,12 @@ function ProgressiveSection() {
 
       {/* Progress Bar States */}
       <div className="space-y-4">
-        <h4 className="text-sm font-medium text-muted-foreground">Progress Bar</h4>
-        <p className="text-xs text-muted-foreground">Visual indicator showing completion percentage (0-100)</p>
+        <h4 className="text-sm font-medium text-muted-foreground">
+          Progress Bar
+        </h4>
+        <p className="text-xs text-muted-foreground">
+          Visual indicator showing completion percentage (0-100)
+        </p>
         <div className="flex flex-wrap gap-3">
           <Button variant="default" progress={25}>
             25% Complete
@@ -437,16 +480,23 @@ function ProgressiveSection() {
 
       {/* Combined Loading + Progress */}
       <div className="space-y-4">
-        <h4 className="text-sm font-medium text-muted-foreground">Combined Loading + Progress</h4>
-        <p className="text-xs text-muted-foreground">Shows both spinner and progress bar together</p>
+        <h4 className="text-sm font-medium text-muted-foreground">
+          Combined Loading + Progress
+        </h4>
+        <p className="text-xs text-muted-foreground">
+          Shows both spinner and progress bar together
+        </p>
         <div className="flex flex-wrap gap-3">
-          <Button variant="default" loading={true} progress={30}>
+          <Button variant="default" disabled progress={30}>
+            <Spinner />
             Downloading 30%
           </Button>
-          <Button variant="secondary" loading={true} progress={60}>
+          <Button variant="secondary" disabled progress={60}>
+            <Spinner />
             Building 60%
           </Button>
-          <Button variant="outline" loading={true} progress={90}>
+          <Button variant="outline" disabled progress={90}>
+            <Spinner />
             Deploying 90%
           </Button>
         </div>
@@ -454,31 +504,38 @@ function ProgressiveSection() {
 
       {/* Interactive Example */}
       <div className="space-y-4">
-        <h4 className="text-sm font-medium text-muted-foreground">Interactive Example</h4>
-        <p className="text-xs text-muted-foreground">Click to simulate upload with progress</p>
+        <h4 className="text-sm font-medium text-muted-foreground">
+          Interactive Example
+        </h4>
+        <p className="text-xs text-muted-foreground">
+          Click to simulate upload with progress
+        </p>
         <div className="flex flex-wrap gap-3">
           <Button
             variant="default"
-            loading={uploading}
+            disabled={uploading}
             progress={uploading ? progress : undefined}
             onClick={handleUpload}
           >
+            {uploading && <Spinner />}
             {uploading ? `Uploading ${progress}%` : "Upload File"}
           </Button>
           <Button
             variant="secondary"
-            loading={uploading}
+            disabled={uploading}
             progress={uploading ? progress : undefined}
             onClick={handleUpload}
           >
+            {uploading && <Spinner />}
             {uploading ? `Processing ${progress}%` : "Process Data"}
           </Button>
           <Button
             variant="outline"
-            loading={uploading}
+            disabled={uploading}
             progress={uploading ? progress : undefined}
             onClick={handleUpload}
           >
+            {uploading && <Spinner />}
             {uploading ? `Installing ${progress}%` : "Install Package"}
           </Button>
         </div>
@@ -486,7 +543,9 @@ function ProgressiveSection() {
 
       {/* Manual Spinner Usage */}
       <div className="space-y-4">
-        <h4 className="text-sm font-medium text-muted-foreground">Manual Spinner Component</h4>
+        <h4 className="text-sm font-medium text-muted-foreground">
+          Manual Spinner Component
+        </h4>
         <p className="text-xs text-muted-foreground">
           Use Spinner component manually for custom loading implementations
         </p>
@@ -520,12 +579,16 @@ function ProgressiveSection() {
 function AffirmativeNegativeSection() {
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-foreground">Affirmative & Negative</h3>
+      <h3 className="text-lg font-semibold text-foreground">
+        Affirmative & Negative
+      </h3>
 
       <div className="flex gap-12">
         {/* Affirmative */}
         <div className="space-y-4 min-w-[200px]">
-          <h4 className="text-sm font-semibold text-muted-foreground">Affirmative</h4>
+          <h4 className="text-sm font-semibold text-muted-foreground">
+            Affirmative
+          </h4>
           <div className="space-y-3 p-6">
             <Button variant="success" size="default" className="w-full">
               Apply Now
@@ -533,7 +596,12 @@ function AffirmativeNegativeSection() {
             <Button variant="outline-success" size="default" className="w-full">
               Apply Now
             </Button>
-            <Button variant="success" size="default" className="w-full" disabled>
+            <Button
+              variant="success"
+              size="default"
+              className="w-full"
+              disabled
+            >
               Applied
             </Button>
           </div>
@@ -541,15 +609,26 @@ function AffirmativeNegativeSection() {
 
         {/* Negative */}
         <div className="space-y-4 min-w-[200px]">
-          <h4 className="text-sm font-semibold text-muted-foreground">Negative</h4>
+          <h4 className="text-sm font-semibold text-muted-foreground">
+            Negative
+          </h4>
           <div className="space-y-3 p-6">
             <Button variant="destructive" size="default" className="w-full">
               Delete
             </Button>
-            <Button variant="outline-destructive" size="default" className="w-full">
+            <Button
+              variant="outline-destructive"
+              size="default"
+              className="w-full"
+            >
               Delete
             </Button>
-            <Button variant="destructive" size="default" className="w-full" disabled>
+            <Button
+              variant="destructive"
+              size="default"
+              className="w-full"
+              disabled
+            >
               Deleted
             </Button>
           </div>
@@ -687,10 +766,12 @@ export function ButtonShowcase() {
         {/* Header */}
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-foreground mb-2">Button Component</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">
+              Button Component
+            </h1>
             <p className="text-muted-foreground">
-              Comprehensive button component showcase following ShadCN design patterns with all variants, sizes,
-              and states.
+              Comprehensive button component showcase following ShadCN design
+              patterns with all variants, sizes, and states.
             </p>
           </div>
           <ThemeSwitcher />
@@ -700,13 +781,21 @@ export function ButtonShowcase() {
         <ButtonSizeSection title="Large Size" size="lg" iconSize="icon-lg" />
         <div className="border-t border-border" />
 
-        <ButtonSizeSection title="Default Size" size="default" iconSize="icon" />
+        <ButtonSizeSection
+          title="Default Size"
+          size="default"
+          iconSize="icon"
+        />
         <div className="border-t border-border" />
 
         <ButtonSizeSection title="Small Size" size="sm" iconSize="icon-sm" />
         <div className="border-t border-border" />
 
-        <ButtonSizeSection title="Extra Small Size" size="xs" iconSize="icon-xs" />
+        <ButtonSizeSection
+          title="Extra Small Size"
+          size="xs"
+          iconSize="icon-xs"
+        />
         <div className="border-t border-border" />
 
         {/* Button States */}

@@ -56,4 +56,6 @@ add_action( 'admin_enqueue_scripts', function( $hook ) {
         [],
         $asset_file['version']
     );
+
+    wp_enqueue_media();
 } );

@@ -20,7 +20,7 @@ import {
   ToggleGroupItem,
   MatricsCard,
   MatricsGroup,
-  MatricsGroupItem, MatricsPill
+  MatricsGroupItem, MatricsPill, FileUpload
 } from "@wedevs/plugin-ui";
 import React, { useState } from "react";
 import { wemailDarkTheme, wemailTheme } from "./themes/wemail";
@@ -32,21 +32,47 @@ import { Handbag, CirclePlay, BadgeCheck } from "lucide-react";
 
 // Dokan Theme (Purple)
 const dokanTheme: ThemeTokens = {
-  primary: "oklch(0.5410 0.2120 265.7540)",
-  primaryForeground: "oklch(1.0000 0 0)",
-  ring: "oklch(0.5410 0.2120 265.7540)",
+  background: "oklch(1.0000 0 0)",
+  foreground: "oklch(0.2686 0 0)",
+  card: "oklch(1.0000 0 0)",
+  cardForeground: "oklch(0.2686 0 0)",
+  popover: "oklch(1.0000 0 0)",
+  popoverForeground: "oklch(0.2686 0 0)",
+  primary: "oklch(0.7686 0.1647 70.0804)",
+  primaryForeground: "oklch(0 0 0)",
+  secondary: "oklch(0.9670 0.0029 264.5419)",
+  secondaryForeground: "oklch(0.4461 0.0263 256.8018)",
+  muted: "oklch(0.9846 0.0017 247.8389)",
+  mutedForeground: "oklch(0.5510 0.0234 264.3637)",
+  accent: "oklch(0.9869 0.0214 95.2774)",
+  accentForeground: "oklch(0.4732 0.1247 46.2007)",
+  destructive: "oklch(0.6368 0.2078 25.3313)",
+  destructiveForeground: "oklch(1.0000 0 0)",
+  border: "oklch(0.9276 0.0058 264.5313)",
+  input: "oklch(0.9276 0.0058 264.5313)",
+  ring: "oklch(0.7686 0.1647 70.0804)",
 };
 
 const dokanDarkTheme: ThemeTokens = {
-  primary: "#000",
-  primaryForeground: "#fff",
-  background: "#eee",
-  foreground: "#fff",
-  card: "oklch(0.1800 0.0140 285.7500)",
-  cardForeground: "oklch(0.9850 0.0030 264.5000)",
-  border: "oklch(0.3690 0.0150 264.5313)",
-  muted: "oklch(0.2690 0.0150 264.5419)",
-  mutedForeground: "oklch(0.7110 0.0200 264.3637)",
+  background: "oklch(0.2046 0 0)",
+  foreground: "oklch(0.9219 0 0)",
+  card: "oklch(0.2686 0 0)",
+  cardForeground: "oklch(0.9219 0 0)",
+  popover: "oklch(0.2686 0 0)",
+  popoverForeground: "oklch(0.9219 0 0)",
+  primary: "oklch(0.7686 0.1647 70.0804)",
+  primaryForeground: "oklch(0 0 0)",
+  secondary: "oklch(0.2686 0 0)",
+  secondaryForeground: "oklch(0.9219 0 0)",
+  muted: "oklch(0.2393 0 0)",
+  mutedForeground: "oklch(0.7155 0 0)",
+  accent: "oklch(0.4732 0.1247 46.2007)",
+  accentForeground: "oklch(0.9243 0.1151 95.7459)",
+  destructive: "oklch(0.6368 0.2078 25.3313)",
+  destructiveForeground: "oklch(1.0000 0 0)",
+  border: "oklch(0.3715 0 0)",
+  input: "oklch(0.3715 0 0)",
+  ring: "oklch(0.7686 0.1647 70.0804)",
 };
 
 /* ============================================
@@ -407,6 +433,20 @@ function PluginDemo({ title, color }: { title: string; color: string }) {
                   count={10}
                 />
               </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* File Upload */}
+        <Card>
+          <CardHeader>
+            <CardTitle>File upload</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col gap-2">
+              <FileUpload btnText='Upload file' description={'Accept file: jpg, png, img. Up to 25 Mb'} onUpload={(file) => {console.log(file)}}/>
+              <FileUpload variant="text" text='Dropfile here or click to upload' description={'Accept file: jpg, png, img. Up to 25 Mb'} onUpload={(file) => {console.log(file)}}/>
+              <FileUpload variant="button-text" btnText={'Upload'} text='Click to upload' description={'Accept file: jpg, png, img. Up to 25 Mb'} onUpload={(file) => {console.log(file)}}/>
             </div>
           </CardContent>
         </Card>

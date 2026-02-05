@@ -17,10 +17,14 @@ import {
   TooltipContent,
   TooltipTrigger,
   ToggleGroup,
-  ToggleGroupItem, MatricsCard
+  ToggleGroupItem,
+  MatricsCard,
+  MatricsGroup,
+  MatricsGroupItem, MatricsPill
 } from "@wedevs/plugin-ui";
 import React, { useState } from "react";
 import { wemailDarkTheme, wemailTheme } from "./themes/wemail";
+import { Handbag, CirclePlay, BadgeCheck } from "lucide-react";
 
 /* ============================================
    Theme Definitions
@@ -77,266 +81,336 @@ function PluginDemo({ title, color }: { title: string; color: string }) {
         <ThemeSwitcher />
       </div>
 
-      {/* Buttons Card */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Buttons</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex flex-wrap gap-2">
-            <Button onClick={() => setCount(count + 1)}>
-              Clicked: {count}
-            </Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Button variant="destructive">Delete</Button>
-            <Button variant="success">Save</Button>
-            <Button variant="warning">Warning</Button>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="flex flex-col gap-6">
+        {/* Buttons Card */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Buttons</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex flex-wrap gap-2">
+              <Button onClick={() => setCount(count + 1)}>
+                Clicked: {count}
+              </Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button variant="destructive">Delete</Button>
+              <Button variant="success">Save</Button>
+              <Button variant="warning">Warning</Button>
+            </div>
+          </CardContent>
+        </Card>
 
-      {/* Form Card */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Form</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor={`${color}-name`}>Name</Label>
-            <Input id={`${color}-name`} placeholder="Enter name" />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor={`${color}-email`}>Email</Label>
-            <Input
-              id={`${color}-email`}
-              type="email"
-              placeholder="Enter email"
-            />
-          </div>
-        </CardContent>
-      </Card>
+        {/* Form Card */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Form</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor={`${color}-name`}>Name</Label>
+              <Input id={`${color}-name`} placeholder="Enter name" />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor={`${color}-email`}>Email</Label>
+              <Input
+                id={`${color}-email`}
+                type="email"
+                placeholder="Enter email"
+              />
+            </div>
+          </CardContent>
+        </Card>
 
-      {/* InputGroup & CurrencyInput Card */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Input with addons</CardTitle>
-          <p className="text-sm text-muted-foreground">
-            InputGroup (left/right addons) and CurrencyInput
-          </p>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="space-y-4">
-            <h4 className="text-sm font-medium text-foreground">InputGroup</h4>
+        {/* InputGroup & CurrencyInput Card */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Input with addons</CardTitle>
             <p className="text-sm text-muted-foreground">
-              Generic input with optional left and right addons (ShadCN Input
-              inside).
+              InputGroup (left/right addons) and CurrencyInput
             </p>
-            <div className="flex flex-wrap gap-6 items-end">
-              <div className="space-y-2 min-w-[200px]">
-                <Label className="text-xs uppercase text-muted-foreground">
-                  Left addon (prefix)
-                </Label>
-                <InputGroup
-                  leftAddon={
-                    <span className="px-3 text-muted-foreground">$</span>
-                  }
-                  placeholder="0.00"
-                />
-              </div>
-              <div className="space-y-2 min-w-[200px]">
-                <Label className="text-xs uppercase text-muted-foreground">
-                  Right addon (suffix)
-                </Label>
-                <InputGroup
-                  rightAddon={
-                    <span className="px-3 text-muted-foreground">.00</span>
-                  }
-                  placeholder="Amount"
-                />
-              </div>
-              <div className="space-y-2 min-w-[240px]">
-                <Label className="text-xs uppercase text-muted-foreground">
-                  Both addons
-                </Label>
-                <InputGroup
-                  leftAddon={
-                    <span className="px-3 text-muted-foreground">
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-4">
+              <h4 className="text-sm font-medium text-foreground">InputGroup</h4>
+              <p className="text-sm text-muted-foreground">
+                Generic input with optional left and right addons (ShadCN Input
+                inside).
+              </p>
+              <div className="flex flex-wrap gap-6 items-end">
+                <div className="space-y-2 min-w-[200px]">
+                  <Label className="text-xs uppercase text-muted-foreground">
+                    Left addon (prefix)
+                  </Label>
+                  <InputGroup
+                    leftAddon={
+                      <span className="px-3 text-muted-foreground">$</span>
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div className="space-y-2 min-w-[200px]">
+                  <Label className="text-xs uppercase text-muted-foreground">
+                    Right addon (suffix)
+                  </Label>
+                  <InputGroup
+                    rightAddon={
+                      <span className="px-3 text-muted-foreground">.00</span>
+                    }
+                    placeholder="Amount"
+                  />
+                </div>
+                <div className="space-y-2 min-w-[240px]">
+                  <Label className="text-xs uppercase text-muted-foreground">
+                    Both addons
+                  </Label>
+                  <InputGroup
+                    leftAddon={
+                      <span className="px-3 text-muted-foreground">
                       https://
                     </span>
-                  }
-                  rightAddon={
-                    <span className="px-3 text-muted-foreground">.com</span>
-                  }
-                  placeholder="domain"
+                    }
+                    rightAddon={
+                      <span className="px-3 text-muted-foreground">.com</span>
+                    }
+                    placeholder="domain"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h4 className="text-sm font-medium text-foreground">
+                CurrencyInput
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Input with currency dropdown (built with InputGroup + rightAddon).
+              </p>
+              <div className="max-w-[280px] space-y-2">
+                <Label className="text-xs uppercase text-muted-foreground">
+                  Amount + currency
+                </Label>
+                <CurrencyInput
+                  placeholder="0.00"
+                  currency={currency}
+                  onCurrencyChange={setCurrency}
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
                 />
               </div>
             </div>
-          </div>
-          <div className="space-y-4">
-            <h4 className="text-sm font-medium text-foreground">
-              CurrencyInput
-            </h4>
-            <p className="text-sm text-muted-foreground">
-              Input with currency dropdown (built with InputGroup + rightAddon).
-            </p>
-            <div className="max-w-[280px] space-y-2">
-              <Label className="text-xs uppercase text-muted-foreground">
-                Amount + currency
-              </Label>
-              <CurrencyInput
-                placeholder="0.00"
-                currency={currency}
-                onCurrencyChange={setCurrency}
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-              />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
 
-      {/* Badges Card */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Badges</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-2">
-            <Badge>Default</Badge>
-            <Badge variant="secondary">Secondary</Badge>
-            <Badge variant="success">Success</Badge>
-            <Badge variant="warning">Warning</Badge>
-            <Badge variant="destructive">Error</Badge>
-          </div>
-        </CardContent>
-      </Card>
+        {/* Badges Card */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Badges</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-2">
+              <Badge>Default</Badge>
+              <Badge variant="secondary">
+                <BadgeCheck data-icon="inline-start" />
+                Verified Secondary
+              </Badge>
+              <Badge variant="outline" className="bg-[#DCFCE7] text-[#166534]">Success with outline</Badge>
+              <Badge variant="ghost">Ghost</Badge>
+              <Badge variant="destructive">Error</Badge>
+              <Badge variant="link">Link</Badge>
+              <Badge className="bg-[#FEFCE8] text-[#8A610F]">Warning</Badge>
+            </div>
+          </CardContent>
+        </Card>
 
-      {/* Badges Card */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Tooltip</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div>
+        {/* Badges Card */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Tooltip</CardTitle>
+          </CardHeader>
+          <CardContent>
             <div>
-              <Tooltip>
-                <TooltipTrigger>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                       className="lucide lucide-info-icon lucide-info">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 16v-4" />
-                    <path d="M12 8h.01" />
-                  </svg>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <div>
-                    Help Text
-                  </div>
-                </TooltipContent>
-              </Tooltip>
+              <div>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         className="lucide lucide-info-icon lucide-info">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 16v-4" />
+                      <path d="M12 8h.01" />
+                    </svg>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <div>
+                      Help Text
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+              <div>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         className="lucide lucide-info-icon lucide-info">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 16v-4" />
+                      <path d="M12 8h.01" />
+                    </svg>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <div className="max-w-46 text-center">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+              <div>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         className="lucide lucide-info-icon lucide-info">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 16v-4" />
+                      <path d="M12 8h.01" />
+                    </svg>
+                  </TooltipTrigger>
+                  <TooltipContent side="left">
+                    <div>
+                      Left Help Text
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+              <div>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         className="lucide lucide-info-icon lucide-info">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 16v-4" />
+                      <path d="M12 8h.01" />
+                    </svg>
+                  </TooltipTrigger>
+                  <TooltipContent side="right">
+                    <div>
+                      Right Help Text
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
             </div>
-            <div>
-              <Tooltip>
-                <TooltipTrigger>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                       className="lucide lucide-info-icon lucide-info">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 16v-4" />
-                    <path d="M12 8h.01" />
-                  </svg>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <div className="max-w-46 text-center">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  </div>
-                </TooltipContent>
-              </Tooltip>
-            </div>
-            <div>
-              <Tooltip>
-                <TooltipTrigger>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                       className="lucide lucide-info-icon lucide-info">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 16v-4" />
-                    <path d="M12 8h.01" />
-                  </svg>
-                </TooltipTrigger>
-                <TooltipContent side="left">
-                  <div>
-                    Left Help Text
-                  </div>
-                </TooltipContent>
-              </Tooltip>
-            </div>
-            <div>
-              <Tooltip>
-                <TooltipTrigger>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                       className="lucide lucide-info-icon lucide-info">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 16v-4" />
-                    <path d="M12 8h.01" />
-                  </svg>
-                </TooltipTrigger>
-                <TooltipContent side="right">
-                  <div>
-                    Right Help Text
-                  </div>
-                </TooltipContent>
-              </Tooltip>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
 
-      {/* Toggle group */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Toggle group</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div>
+        {/* Toggle group */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Toggle group</CardTitle>
+          </CardHeader>
+          <CardContent>
             <div>
-              <ToggleGroup orientation="horizontal" variant="outline" Value={["all"]} >
-                <ToggleGroupItem value="all" aria-label="Toggle all">
-                  All
-                </ToggleGroupItem>
-                <ToggleGroupItem value="missed" aria-label="Toggle missed">
-                  Missed
-                </ToggleGroupItem>
-              </ToggleGroup>
+              <div>
+                <ToggleGroup orientation="horizontal" variant="outline" Value={["all"]} >
+                  <ToggleGroupItem value="all" aria-label="Toggle all">
+                    All
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="missed" aria-label="Toggle missed">
+                    Missed
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
 
-      {/* Metrics and Trends */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Metrics and Trends</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div>
+        {/* Metrics and Trends */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Metrics and Trends</CardTitle>
+          </CardHeader>
+          <CardContent>
             <div>
-              <MatricsCard
-                tooltip="Total sales in last 30 days"
-                title="Total Sales"
-                value="$12,345"
-                trendType="positive"
-              />
+              <div>
+                <MatricsCard
+                  tooltip="Total sales in last 30 days asdf"
+                  value="$12,345"
+                  count="+10%"
+                  countDirection="up"
+                  shortDescription="from last month dd"
+                  Icon={ Handbag }
+                  ToolTipIcon={ CirclePlay }
+                />
+              </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+
+        {/* Metrics and Trends */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Metrics group</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div>
+              <div>
+                <MatricsGroup>
+                  <MatricsGroupItem
+                    tooltip="Total sales in last 30 days asdf"
+                    value="$12,345"
+                    change="+10%"
+                    changeDirection="up"
+                    label="from last month dd"
+                    Icon={ Handbag }
+                    ToolTipIcon={ CirclePlay }
+                  />
+                  <MatricsGroupItem
+                    tooltip="Total sales in last 30 days asdf"
+                    value="$12,345"
+                    change="+10%"
+                    changeDirection="up"
+                    label="from last month dd"
+                    Icon={ Handbag }
+                    ToolTipIcon={ CirclePlay }
+                  />
+                  <MatricsGroupItem
+                    tooltip="Total sales in last 30 days asdf"
+                    value="$12,345"
+                    change="+10%"
+                    changeDirection="down"
+                    label="from last month dd"
+                    Icon={ Handbag }
+                    ToolTipIcon={ CirclePlay }
+                  />
+                </MatricsGroup>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Metrics and Trends */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Metrics pill</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div>
+              <div>
+                <MatricsPill
+                  Icon={Handbag}
+                  text={'Vendor Approval'}
+                  count={10}
+                />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

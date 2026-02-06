@@ -14,7 +14,7 @@ add_action( 'admin_menu', function() {
         'plugin-ui-test',
         function() {
             ?>
-            <div class="wrap" style="display: flex; gap: 20px; padding: 20px;">
+            <div class="wrap" style="display: flex; flex-direction: column; gap: 20px; padding: 20px;">
                 <!-- Plugin A: Dokan Theme (Purple) -->
                 <div id="plugin-dokan-app" style="flex: 1;"></div>
                 
@@ -56,4 +56,6 @@ add_action( 'admin_enqueue_scripts', function( $hook ) {
         [],
         $asset_file['version']
     );
+
+    wp_enqueue_media();
 } );

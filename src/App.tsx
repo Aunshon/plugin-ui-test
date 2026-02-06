@@ -20,7 +20,8 @@ import {
   ToggleGroupItem,
   MatricsCard,
   MatricsGroup,
-  MatricsGroupItem, MatricsPill, FileUpload
+  MatricsGroupItem, MatricsPill, FileUpload,
+  FileView,
 } from "@wedevs/plugin-ui";
 import React, { useState } from "react";
 import { wemailDarkTheme, wemailTheme } from "./themes/wemail";
@@ -445,8 +446,31 @@ function PluginDemo({ title, color }: { title: string; color: string }) {
           <CardContent>
             <div className="flex flex-col gap-2">
               <FileUpload btnText='Upload file' description={'Accept file: jpg, png, img. Up to 25 Mb'} onUpload={(file) => {console.log(file)}}/>
-              <FileUpload variant="text" text='Dropfile here or click to upload' description={'Accept file: jpg, png, img. Up to 25 Mb'} onUpload={(file) => {console.log(file)}}/>
               <FileUpload variant="button-text" btnText={'Upload'} text='Click to upload' description={'Accept file: jpg, png, img. Up to 25 Mb'} onUpload={(file) => {console.log(file)}}/>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* File View */}
+        <Card>
+          <CardHeader>
+            <CardTitle>File view</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col gap-2">
+              <FileView
+                fileName={'file_name05.png'}
+                fileSize={'25.5 MB'}
+                fileType="file"
+                close={()=>{}}
+              />
+              <FileView
+                fileName={'file_name05.png'}
+                fileSize={'5 MB'}
+                fileType="image"
+                imageUrl="https://thumbs.dreamstime.com/b/portrait-handsome-smiling-young-man-folded-arms-smiling-joyful-cheerful-men-crossed-hands-isolated-studio-shot-172869765.jpg"
+                close={()=>{}}
+              />
             </div>
           </CardContent>
         </Card>

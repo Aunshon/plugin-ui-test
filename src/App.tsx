@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Badge,
   Button,
@@ -21,9 +22,8 @@ import {
   MatricsCard,
   MatricsGroup,
   MatricsGroupItem, MatricsPill, FileUpload,
-  FileView,
+  FileView, YoutubeCircleLightLogo, YoutubeCircleDarkLogo, TopBar
 } from "@wedevs/plugin-ui";
-import React, { useState } from "react";
 import { wemailDarkTheme, wemailTheme } from "./themes/wemail";
 import { Handbag, CirclePlay, BadgeCheck } from "lucide-react";
 
@@ -472,6 +472,29 @@ function PluginDemo({ title, color }: { title: string; color: string }) {
                 close={()=>{}}
               />
             </div>
+          </CardContent>
+        </Card>
+
+        {/* File View */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Logo</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col gap-2">
+              <YoutubeCircleLightLogo />
+              <YoutubeCircleDarkLogo />
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* File View */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Top bar</CardTitle>
+          </CardHeader>
+          <CardContent className="bg-neutral-50 min-h-96">
+            <TopBar className="mt-10" />
           </CardContent>
         </Card>
       </div>

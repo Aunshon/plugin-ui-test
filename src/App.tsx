@@ -1,6 +1,12 @@
 import {
   Badge,
   Button,
+  Progress,
+  ProgressTrack,
+  ProgressIndicator,
+  ProgressValue,
+  CircularProgress,
+  Slider,
   Card,
   CardContent,
   CardHeader,
@@ -195,6 +201,111 @@ function PluginDemo({ title, color }: { title: string; color: string }) {
       </Card>
 
       {/* Badges Card */}
+      {/* Progress Card */}
+      <Card className="mb-4">
+        <CardHeader>
+          <CardTitle>Progress</CardTitle>
+          <p className="text-sm text-muted-foreground">Linear and circular progress examples</p>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-3">
+            <div className="text-sm text-muted-foreground">Linear (70%)</div>
+            <div className="max-w-md">
+              <Progress value={70} max={100}>
+                <ProgressTrack>
+                  <ProgressIndicator />
+                </ProgressTrack>
+                <ProgressValue />
+              </Progress>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="mb-4">
+        <CardHeader>
+          <CardTitle>Sliders (knob)</CardTitle>
+          <p className="text-sm text-muted-foreground">Styled slider / knob examples</p>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-4 max-w-lg">
+            <Slider defaultValue={[100]} variant="purple" size="lg" />
+            <Slider defaultValue={[35]} variant="green" size="md" />
+            <Slider defaultValue={[45]} variant="brown" size="sm" />
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="mb-4">
+        <CardHeader>
+          <CardTitle>Circular Progress</CardTitle>
+          <p className="text-sm text-muted-foreground">SVG-based circular progress with variants</p>
+        </CardHeader>
+        <CardContent>
+          <div className="flex gap-6 flex-wrap items-center">
+            <CircularProgress value={65} variant="default" size={100} strokeWidth={10} showLabel renderLabel={(v) => `${v}%`} />
+            <CircularProgress value={45} variant="purple" size={120} strokeWidth={10} showLabel renderLabel={(v) => `${v}%`} />
+            <CircularProgress value={80} variant="green" size={80} strokeWidth={10} showLabel renderLabel={(v) => `${v}%`} />
+            <CircularProgress value={30} variant="danger" size={140} strokeWidth={10} showLabel renderLabel={(v) => `${v}%`} />
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="mb-4">
+        <CardHeader>
+          <CardTitle>Linear Progress</CardTitle>
+          <p className="text-sm text-muted-foreground">Linear progress bars with modular components</p>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label>Default Progress (70%)</Label>
+              <Progress value={70} max={100}>
+                <ProgressTrack>
+                  <ProgressIndicator />
+                </ProgressTrack>
+                <ProgressValue />
+              </Progress>
+            </div>
+            <div className="space-y-2">
+              <Label>Green Variant (85%)</Label>
+              <Progress value={85} max={100}>
+                <ProgressTrack variant="green">
+                  <ProgressIndicator variant="green" size="sm" />
+                </ProgressTrack>
+                <ProgressValue />
+              </Progress>
+            </div>
+            <div className="space-y-2">
+              <Label>Purple Variant (50%)</Label>
+              <Progress value={50} max={100}>
+                <ProgressTrack variant="brown" size="lg">
+                  <ProgressIndicator variant="purple" />
+                </ProgressTrack>
+                <ProgressValue />
+              </Progress>
+            </div>
+
+            <div className="space-y-2">
+              <Label>Purple Variant(without labelvalue) (50%)</Label>
+              <Progress value={54} max={100}>
+                <ProgressTrack variant="danger" size="lg">
+                  <ProgressIndicator variant="purple" />
+                </ProgressTrack>
+              </Progress>
+            </div>
+            <div className="space-y-2">
+              <Label>Purple Variant (50%)</Label>
+              <Progress value={90} max={100}>
+                <ProgressTrack variant="purple" size="sm">
+                  <ProgressIndicator variant="green" />
+                </ProgressTrack>
+              </Progress>
+            </div>
+          </div>  
+        </CardContent>
+      </Card>
+
       <Card>
         <CardHeader>
           <CardTitle>Badges</CardTitle>

@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { DokanPluginDemo, WeMailPluginDemo } from "./App";
+import { DokanPluginDemo, WeMailPluginDemo, ButtonShowcaseDemo } from "./App";
 import "./style.css";
 
 function init() {
@@ -16,6 +16,13 @@ function init() {
   if (wemailMount) {
     const root = createRoot(wemailMount);
     root.render(<WeMailPluginDemo />);
+  }
+
+  // Mount Button Showcase (Buttons submenu page)
+  const buttonsMount = document.getElementById("plugin-buttons-showcase-app");
+  if (buttonsMount) {
+    const root = createRoot(buttonsMount);
+    root.render(<ButtonShowcaseDemo />);
   }
 }
 
